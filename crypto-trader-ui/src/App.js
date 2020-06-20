@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import Card from './components/card_component/CardComponent';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      cryptos: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('https://api.coincap.io/v2/assets')
+      .then(response => response.json())
+      .then(x => 
+        this.setState({ 
+          cryptos: x.data.map(i => ({
+            id:i.id, 
+            symbol:i.symbol,
+            priceUsd:i.priceUsd
+          })) 
+        })); 
+  }
+
+  render () {
+    
+    return (
+      this.state.cryptos.map(crypto =>( 
+        <Card key={crypto.id} crypto={crypto} />
+         ) )
+      )
+  }
 }
 
 export default App;
