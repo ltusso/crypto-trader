@@ -4,7 +4,6 @@ import com.ltusso.trader.model.Crypto
 import com.ltusso.trader.model.Customer
 import com.ltusso.trader.model.Purchase
 import com.ltusso.trader.repository.PurchaseRepository
-import com.ltusso.trader.web.dto.PurchaseDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
@@ -23,19 +22,22 @@ class PurchaseService(@Autowired val cryptoService: CryptoService,
 
     @Synchronized
     @Transactional
-    fun purchase(dto: PurchaseDTO) {
-        val crypto = cryptoService.getCryptoByCode(dto.cryptoCode)
-        val customer = customerService.findById(dto.customerId).orElseThrow { RuntimeException("customer ${dto.customerId} does not exist") }
-        if (!customer.enoughMoney(dto.amountToBuy)) {
+    fun purchase(purchaseInformation: PurchaseInformation) {
+        val crypto = cryptoService.getCryptoById(purchaseInformation.cryptoId)
+                .orElse(cryptoService.addCrypto(Crypto(name = purchaseInformation.cryptoName, code = purchaseInformation.cryptoId)))
+        val customer = customerService.findById(purchaseInformation.customerId).orElseThrow { RuntimeException("customer ${purchaseInformation.customerId} does not exist") }
+
+        val totalPrice = calculatePrice(purchaseInformation.purchasedAmount, purchaseInformation.cryptoPrice)
+        if (!customer.enoughMoney(totalPrice)) {
             throw RuntimeException("Not enough money to buy crypto")
         }
 
-        val purchase = Purchase(customer = customer, crypto = crypto, price = calculatePrice(dto.amountToBuy, crypto), purchasedAmount = dto.amountToBuy)
+        val purchase = Purchase(customer = customer, crypto = crypto, price = totalPrice, purchasedAmount = purchaseInformation.purchasedAmount)
         customer.budget = customer.decreaseBudget(purchase.price)
         customerService.save(customer)
         purchaseRepository.save(purchase)
     }
 
-    private fun calculatePrice(amountToBuy: BigDecimal, crypto: Crypto): BigDecimal = crypto.price.multiply(amountToBuy).setScale(2, RoundingMode.HALF_UP)
+    private fun calculatePrice(amountToBuy: BigDecimal, price: BigDecimal): BigDecimal = price?.multiply(amountToBuy).setScale(2, RoundingMode.HALF_UP)
 
 }

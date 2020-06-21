@@ -11,10 +11,10 @@ data class Crypto(
         var id: Long? = null,
         @Column
         var name: String,
-        @Column(length = 3, unique = true)
+        @Column(unique = true)
         var code: String,
         @Column
-        var description: String,
+        var description: String?=null,
         @Column
-        var price: BigDecimal
+        var price: BigDecimal?=null
 )
