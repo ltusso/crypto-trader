@@ -15,6 +15,10 @@ class CryptoController(
 ) {
 
     @RequestMapping
-    fun getAllCryptos(): List<CryptoDTO> = service.getCryptos().stream().map { CryptoDTO.from(it) }.collect(Collectors.toList())
+    fun getAllCryptos(): List<CryptoDTO> {
+        return service.getCryptos().stream()
+                .map { CryptoDTO(it.name, it.code) }
+                .collect(Collectors.toList())
+    }
 
 }

@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.*
 @CrossOrigin(origins = ["*"], allowedHeaders = ["*"])
 class PurchaseController(@Autowired val purchaseService: PurchaseService) {
 
-
     @PostMapping
-    fun purchaseCrypto(@RequestBody purchase: PurchaseDTO) = purchaseService.purchase(PurchaseInformation.from(purchase))
+    fun purchaseCrypto(@RequestBody purchaseDto: PurchaseDTO) {
+        purchaseService.purchase(purchaseDto.toPurchaseInformation())
+    }
 
+    // Mappers
+    fun PurchaseDTO.toPurchaseInformation(): PurchaseInformation {
+        return PurchaseInformation(cryptoDTO.id, cryptoDTO.name, amountToBuy, priceUsd, customerId)
+    }
 }
