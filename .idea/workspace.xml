@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6cae983f-e560-4106-8085-74654019e155" name="Default Changelist" comment="" />
+    <list default="true" id="6cae983f-e560-4106-8085-74654019e155" name="Default Changelist" comment="Add ResponseEntity as return type on CustomerController">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crypto-trader-server/src/main/kotlin/com/ltusso/trader/service/CryptoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/crypto-trader-server/src/main/kotlin/com/ltusso/trader/service/CryptoService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crypto-trader-server/src/main/kotlin/com/ltusso/trader/web/controller/CustomerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/crypto-trader-server/src/main/kotlin/com/ltusso/trader/web/controller/CustomerController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crypto-trader-server/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/crypto-trader-server/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crypto-trader-ui/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/crypto-trader-ui/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Kotlin File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/crypto-trader-ui" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1dZmbBi4wIEbP0mWy1xR90DreK8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -16,7 +31,6 @@
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -25,10 +39,35 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15429688" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.ltusso.trader.integration" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TraderApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="trader" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.ltusso.trader.TraderApplicationKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.TraderApplicationKt" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -41,16 +80,172 @@
       <option name="presentableId" value="Default" />
       <updated>1592641058106</updated>
     </task>
+    <task id="LOCAL-00001" summary="Re adapt Purchase DTO to match UI attributes.&#10;Remove the possibility to create Crypto coin, as now it is being fetched from 3rd party">
+      <created>1592738761140</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1592738761140</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add ResponseEntity as return type on CustomerController">
+      <created>1592936054986</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1592936054986</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add provider integration so that we can initialize our crypto. If can't fetch a warn is logged. I am considering a retry mechanism">
+      <created>1592940833775</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1592940833775</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/crypto-trader-ui" />
+    </ignored-roots>
+    <MESSAGE value="Re adapt Purchase DTO to match UI attributes.&#10;Remove the possibility to create Crypto coin, as now it is being fetched from 3rd party" />
+    <MESSAGE value="Add ResponseEntity as return type on CustomerController" />
+    <MESSAGE value="Add provider integration so that we can initialize our crypto. If can't fetch a warn is logged. I am considering a retry mechanism" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add provider integration so that we can initialize our crypto. If can't fetch a warn is logged. I am considering a retry mechanism" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="-1451" y="107" width="1377" height="722" key="SettingsEditor" timestamp="1592641574650">
+    <state x="-1360" y="116" key="#Plugins" timestamp="1592645002096">
       <screen x="-1920" y="-72" width="1920" height="1080" />
     </state>
-    <state x="-1451" y="107" width="1377" height="722" key="SettingsEditor/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592641574650" />
-    <state x="-1566" y="90" key="new project wizard" timestamp="1592641668735">
+    <state x="-1360" y="116" key="#Plugins/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592645002096" />
+    <state x="-1360" y="133" key="#Project_Structure" timestamp="1592643058923">
       <screen x="-1920" y="-72" width="1920" height="1080" />
     </state>
-    <state x="-1566" y="90" key="new project wizard/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592641668735" />
+    <state x="-1360" y="133" key="#Project_Structure/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592643058923" />
+    <state x="-1496" y="130" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592643430460">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1496" y="130" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592643430460" />
+    <state x="-1173" y="191" key="#com.intellij.ide.util.MemberChooser" timestamp="1592937882609">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1173" y="191" key="#com.intellij.ide.util.MemberChooser/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592937882609" />
+    <state x="-1335" y="208" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592937949195">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1335" y="208" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592937949195" />
+    <state x="-1202" y="253" width="640" height="429" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1592940108432">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1202" y="253" width="640" height="429" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940108432" />
+    <state x="-1373" y="43" key="CommitChangelistDialog2" timestamp="1592940833639">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1373" y="43" key="CommitChangelistDialog2/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940833639" />
+    <state width="798" height="466" key="DebuggerActiveHint" timestamp="1592938953203">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state width="798" height="466" key="DebuggerActiveHint/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592938953203" />
+    <state x="-1632" y="37" key="DiffContextDialog" timestamp="1592937984239">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1632" y="37" key="DiffContextDialog/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592937984239" />
+    <state width="1878" height="297" key="GridCell.Tab.0.bottom" timestamp="1592940601648">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="366" key="GridCell.Tab.0.bottom/-1920.-49.1920.1057/0.23.1680.1027@-1920.-49.1920.1057" timestamp="1592753112388" />
+    <state width="1878" height="297" key="GridCell.Tab.0.bottom/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940601648" />
+    <state width="1878" height="366" key="GridCell.Tab.0.bottom/-1920.-72.1920.1080/0.23.1680.1027@-1920.-72.1920.1080" timestamp="1592939380993" />
+    <state width="1878" height="297" key="GridCell.Tab.0.center" timestamp="1592940601646">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="366" key="GridCell.Tab.0.center/-1920.-49.1920.1057/0.23.1680.1027@-1920.-49.1920.1057" timestamp="1592753112386" />
+    <state width="1878" height="297" key="GridCell.Tab.0.center/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940601646" />
+    <state width="1878" height="366" key="GridCell.Tab.0.center/-1920.-72.1920.1080/0.23.1680.1027@-1920.-72.1920.1080" timestamp="1592939380989" />
+    <state width="1878" height="297" key="GridCell.Tab.0.left" timestamp="1592940601644">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="366" key="GridCell.Tab.0.left/-1920.-49.1920.1057/0.23.1680.1027@-1920.-49.1920.1057" timestamp="1592753112385" />
+    <state width="1878" height="297" key="GridCell.Tab.0.left/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940601644" />
+    <state width="1878" height="366" key="GridCell.Tab.0.left/-1920.-72.1920.1080/0.23.1680.1027@-1920.-72.1920.1080" timestamp="1592939380987" />
+    <state width="1878" height="297" key="GridCell.Tab.0.right" timestamp="1592940601647">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="366" key="GridCell.Tab.0.right/-1920.-49.1920.1057/0.23.1680.1027@-1920.-49.1920.1057" timestamp="1592753112387" />
+    <state width="1878" height="297" key="GridCell.Tab.0.right/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940601647" />
+    <state width="1878" height="366" key="GridCell.Tab.0.right/-1920.-72.1920.1080/0.23.1680.1027@-1920.-72.1920.1080" timestamp="1592939380990" />
+    <state width="1878" height="366" key="GridCell.Tab.1.bottom" timestamp="1592940452016">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="366" key="GridCell.Tab.1.bottom/-1920.-49.1920.1057/0.23.1680.1027@-1920.-49.1920.1057" timestamp="1592753112391" />
+    <state width="1878" height="366" key="GridCell.Tab.1.bottom/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940452016" />
+    <state width="1878" height="366" key="GridCell.Tab.1.bottom/-1920.-72.1920.1080/0.23.1680.1027@-1920.-72.1920.1080" timestamp="1592939385885" />
+    <state width="1878" height="366" key="GridCell.Tab.1.center" timestamp="1592940452014">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="366" key="GridCell.Tab.1.center/-1920.-49.1920.1057/0.23.1680.1027@-1920.-49.1920.1057" timestamp="1592753112390" />
+    <state width="1878" height="366" key="GridCell.Tab.1.center/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940452014" />
+    <state width="1878" height="366" key="GridCell.Tab.1.center/-1920.-72.1920.1080/0.23.1680.1027@-1920.-72.1920.1080" timestamp="1592939385882" />
+    <state width="1878" height="366" key="GridCell.Tab.1.left" timestamp="1592940452013">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="366" key="GridCell.Tab.1.left/-1920.-49.1920.1057/0.23.1680.1027@-1920.-49.1920.1057" timestamp="1592753112389" />
+    <state width="1878" height="366" key="GridCell.Tab.1.left/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940452013" />
+    <state width="1878" height="366" key="GridCell.Tab.1.left/-1920.-72.1920.1080/0.23.1680.1027@-1920.-72.1920.1080" timestamp="1592939385879" />
+    <state width="1878" height="366" key="GridCell.Tab.1.right" timestamp="1592940452015">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="366" key="GridCell.Tab.1.right/-1920.-49.1920.1057/0.23.1680.1027@-1920.-49.1920.1057" timestamp="1592753112390" />
+    <state width="1878" height="366" key="GridCell.Tab.1.right/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940452015" />
+    <state width="1878" height="366" key="GridCell.Tab.1.right/-1920.-72.1920.1080/0.23.1680.1027@-1920.-72.1920.1080" timestamp="1592939385883" />
+    <state x="-1133" y="169" key="NewModule_or_Project.wizard" timestamp="1592643261605">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1133" y="169" key="NewModule_or_Project.wizard/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592643261605" />
+    <state x="-1451" y="107" width="1377" height="722" key="SettingsEditor" timestamp="1592644545669">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1451" y="107" width="1377" height="722" key="SettingsEditor/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592644545669" />
+    <state x="-1360" y="208" key="Vcs.Push.Dialog.v2" timestamp="1592940839660">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1360" y="208" key="Vcs.Push.Dialog.v2/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940839660" />
+    <state width="960" height="540" key="XDebugger.FullValuePopup" timestamp="1592938750443">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state width="960" height="540" key="XDebugger.FullValuePopup/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592938750443" />
+    <state x="-1169" y="389" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592935051009">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1169" y="389" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592935051009" />
+    <state x="-1566" y="90" key="new project wizard" timestamp="1592643232130">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1566" y="90" key="new project wizard/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592643232130" />
+    <state x="-1295" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1592940199274">
+      <screen x="-1920" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="-1295" y="169" width="670" height="676" key="search.everywhere.popup/-1920.-72.1920.1080/0.0.1680.1050@-1920.-72.1920.1080" timestamp="1592940199274" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/crypto-trader-server/src/main/kotlin/com/ltusso/trader/service/PurchaseService.kt</url>
+          <line>20</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/crypto-trader-server/src/main/kotlin/com/ltusso/trader/integration/coincap/CoincapDataDataLoader.kt</url>
+          <line>12</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/crypto-trader-server/src/main/kotlin/com/ltusso/trader/integration/coincap/CoincapApi.kt</url>
+          <line>18</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
