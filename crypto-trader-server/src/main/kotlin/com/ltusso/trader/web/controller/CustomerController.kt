@@ -5,6 +5,7 @@ import com.ltusso.trader.web.dto.CryptoDTO
 import com.ltusso.trader.web.dto.CustomerDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -32,7 +33,7 @@ class CustomerController(
     }
 
     @RequestMapping("/{customerId}")
-    fun find(@RequestParam customerId: Long): ResponseEntity<CustomerDTO> {
+    fun find(@PathVariable customerId: Long): ResponseEntity<CustomerDTO> {
         val customer = customerService.findById(customerId)
 
         if (customer != null) {
