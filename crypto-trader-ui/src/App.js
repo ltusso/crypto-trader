@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CoinListComponent from "./components/coin_list_component/CoinListComponent";
-import UserDetailComponent from "./components/user_detail_component/UserDetailComponent";
+import PurchaseListComponent from "./components/purchase_list_component/PurchaseListComponent";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function App() {
@@ -27,7 +27,7 @@ export default function App() {
             <CoinListComponent />
           </Route>
           <Route path="/operations">
-            <UserDetailComponent customerId="1" />
+            <PurchaseListComponent customerId="1" />
           </Route>
         </Switch>
       </div>

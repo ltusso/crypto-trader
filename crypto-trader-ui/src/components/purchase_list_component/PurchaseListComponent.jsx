@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "react-bootstrap";
-class UserDetailComponent extends Component {
+
+class PurchaseListComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,11 +28,6 @@ class UserDetailComponent extends Component {
   }
 
   render() {
-    /*  return this.state.purchases.map((purchase) => {
-      return <span>{purchase.crypto.id}</span>;   
-    });
-    */
-
     return (
       <Table striped bordered hover>
         <thead>
@@ -56,4 +52,4 @@ class UserDetailComponent extends Component {
     );
   }
 }
-export default UserDetailComponent;
+export default PurchaseListComponent;
