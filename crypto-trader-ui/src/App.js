@@ -12,14 +12,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://api.coincap.io/v2/assets")
+    fetch("http://localhost:8080/coin")
       .then((response) => response.json())
       .then((x) =>
         this.setState({
-          cryptos: x.data.map((i) => ({
+          cryptos: x.map((i) => ({
             id: i.id,
-            symbol: i.symbol,
-            priceUsd: i.priceUsd,
+            symbol: i.name,
+            priceUsd: i.price,
           })),
         })
       );
