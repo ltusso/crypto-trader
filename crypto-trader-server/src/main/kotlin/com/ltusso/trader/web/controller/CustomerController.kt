@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -23,7 +22,7 @@ class CustomerController(
                     val cryptoInfoPurchases = customer.purchases
                             .map {
                                 CustomerDTO.CryptoInfoDTO(
-                                        cryptoDTO = CryptoDTO(it.crypto.name, it.crypto.code),
+                                        cryptoDTO = CryptoDTO(it.crypto.name, it.crypto.code, it.crypto.price),
                                         amount = it.purchasedAmount,
                                         totalPrice = it.price)
                             }
@@ -40,7 +39,7 @@ class CustomerController(
             return ResponseEntity.ok(CustomerDTO(customer.name, customer.lastName, customer.budget, customer.purchases
                     .map {
                         CustomerDTO.CryptoInfoDTO(
-                                cryptoDTO = CryptoDTO(it.crypto.name, it.crypto.code),
+                                cryptoDTO = CryptoDTO(it.crypto.name, it.crypto.code, it.price),
                                 amount = it.purchasedAmount,
                                 totalPrice = it.price)
                     }))

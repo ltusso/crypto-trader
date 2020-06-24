@@ -16,5 +16,5 @@ data class Crypto(
         @Column
         var description: String?=null,
         @Column
-        var price: BigDecimal?=null
+        var price: BigDecimal
 )
