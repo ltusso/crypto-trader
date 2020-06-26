@@ -10,18 +10,32 @@ class CoinListComponent extends Component {
     };
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   componentDidMount() {
-    fetch("http://localhost:8080/coin")
-      .then((response) => response.json())
-      .then((x) =>
-        this.setState({
-          cryptos: x.map((i) => ({
-            id: i.id,
-            symbol: i.name,
-            priceUsd: i.price,
-          })),
-        })
-      );
+    this.loadData();
+    //setInterval(this.loadData, 30000);
+  }
+
+  loadData() {
+    try {
+      fetch("http://localhost:8080/coin")
+        .then((response) => response.json())
+        .then((x) =>
+          this.setState({
+            cryptos: x.map((i) => ({
+              id: i.id,
+              symbol: i.name,
+              priceUsd: i.price,
+              variation: i.variation,
+            })),
+          })
+        );
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   render() {

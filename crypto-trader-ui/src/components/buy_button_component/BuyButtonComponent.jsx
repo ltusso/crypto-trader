@@ -21,8 +21,8 @@ class BuyButton extends Component {
           name: name,
           id: id,
         },
-        priceUsd: price,
-        amountToBuy: amount,
+        price: price,
+        amount: amount,
         customerId: 1,
       }),
     };

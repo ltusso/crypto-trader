@@ -11,13 +11,13 @@ class PurchaseListComponent extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8080/customer/" + this.props.customerId)
+    fetch("http://localhost:8080/purchase/" + this.props.customerId)
       .then((response) => response.json())
       .then((x) =>
         this.setState({
-          purchases: x.purchases.map((i) => ({
+          purchases: x.map((i) => ({
             amount: i.amount,
-            price: i.totalPrice,
+            price: i.price,
             crypto: {
               name: i.cryptoDTO.name,
               id: i.cryptoDTO.id,
