@@ -5,6 +5,7 @@ import com.ltusso.trader.repository.CryptoRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
+import java.math.RoundingMode
 
 @Service
 class CryptoService(
@@ -23,5 +24,19 @@ class CryptoService(
         }
         return cryptoRepository.save(Crypto(name = name, code = code, price = price))
     }
+
+    fun updateCrypto(code: String, price: BigDecimal) {
+        var crypto = cryptoRepository.findByCode(code)
+        if (crypto != null) {
+            crypto.variation = crypto.calculateVariationPercentage(price)
+            crypto.price = price
+            cryptoRepository.save(crypto)
+        }
+    }
+
+    fun Crypto.calculateVariationPercentage(newPrice: BigDecimal): BigDecimal {
+        return price.minus(newPrice).multiply(BigDecimal(100)).divide(price, 2, RoundingMode.HALF_UP).multiply(BigDecimal(-1))
+    }
+
 
 }
