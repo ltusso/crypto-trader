@@ -34,6 +34,10 @@ class PurchaseService(@Autowired val cryptoService: CryptoService,
         purchaseRepository.save(purchase)
     }
 
+    fun getPurchasesByCustomer(customerId : Long):List<Purchase>{
+        return purchaseRepository.findByCustomerId(customerId);
+    }
+
     fun Customer.hasEnoughMoney(amount: BigDecimal): Boolean = budget >= amount
     fun Customer.decreaseBudget(decrease: BigDecimal): BigDecimal = budget.minus(decrease)
 
