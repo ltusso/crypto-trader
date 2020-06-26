@@ -16,7 +16,7 @@ class PurchaseController(@Autowired val purchaseService: PurchaseService) {
     @PostMapping
     fun purchaseCrypto(@RequestBody purchaseDto: PurchaseDTO): ResponseEntity<Any> {
         purchaseService.purchase(purchaseDto.toPurchaseInformation())
-        return ResponseEntity.ok(ResponseEntity.ok());
+        return ResponseEntity.ok("Purchase done")
     }
 
     @RequestMapping("/{customerId}")

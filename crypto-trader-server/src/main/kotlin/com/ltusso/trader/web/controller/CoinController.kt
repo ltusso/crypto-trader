@@ -19,7 +19,7 @@ class CoinController(
     @RequestMapping
     fun getAllCryptos(): List<CryptoDTO> {
         return service.getCryptos().stream()
-                .map { CryptoDTO(it.name, it.code, it.price) }
+                .map { CryptoDTO(it.name, it.code, it.price,it.variation) }
                 .collect(Collectors.toList())
     }
 

@@ -20,9 +20,10 @@ class CoingeckoDataLoader(@Autowired val coingeckoApi: CoingeckoApi,
 
     }
 
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(fixedDelay = 60000)
     override fun synchronize() {
         val cryptos = coingeckoApi.getCryptoList()
+        println("syncrhonizing coins and its variations")
         for (crypto in cryptos.stream()) {
             crypoService.updateCrypto(crypto.id,crypto.currentPrice)
         }

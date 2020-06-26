@@ -35,7 +35,13 @@ class CryptoService(
     }
 
     fun Crypto.calculateVariationPercentage(newPrice: BigDecimal): BigDecimal {
-        return price.minus(newPrice).multiply(BigDecimal(100)).divide(price, 2, RoundingMode.HALF_UP).multiply(BigDecimal(-1))
+        if (price.compareTo(BigDecimal.ZERO)!= 0) {
+            return price.minus(newPrice)
+                    .multiply(BigDecimal(100))
+                    .divide(price, 2, RoundingMode.HALF_UP)
+                    .multiply(BigDecimal(-1))
+        }
+        return BigDecimal.ZERO
     }
 
 
