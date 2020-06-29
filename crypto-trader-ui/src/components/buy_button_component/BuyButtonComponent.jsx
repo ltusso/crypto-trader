@@ -8,11 +8,18 @@ class BuyButton extends Component {
     this.state = {
       crypto: this.props.crypto,
       buy: false,
+      purchasedAmount: "",
     };
   }
 
-  purchaseCrypto = (id, name, price, amount) => {
+  handlePurchasedAmountChange = (event) => {
+    console.info(event.target.value);
+    this.setState({ purchasedAmount: event.target.value });
+  };
+
+  purchaseCrypto = (id, name, price) => {
     console.info("purchased!!!");
+    const { purchasedAmount } = this.state;
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -22,7 +29,7 @@ class BuyButton extends Component {
           id: id,
         },
         price: price,
-        amount: amount,
+        amount: purchasedAmount,
         customerId: 1,
       }),
     };
@@ -34,12 +41,20 @@ class BuyButton extends Component {
     this.setState({ buy: true });
   };
 
+  cancelPurchase = (event) => {
+    this.setState({ buy: false });
+  };
+
   render() {
     return this.state.buy ? (
-      <AmountConfirmation
-        onPurchase={this.purchaseCrypto}
-        crypto={this.state.crypto}
-      />
+      <div Style="width:100%">
+        <AmountConfirmation
+          onPurchase={this.purchaseCrypto}
+          crypto={this.state.crypto}
+          onAmountPurchased={this.handlePurchasedAmountChange}
+          onCancelPurchase={this.cancelPurchase}
+        />
+      </div>
     ) : (
       <Button onClick={this.enablePurchase}>Buy</Button>
     );

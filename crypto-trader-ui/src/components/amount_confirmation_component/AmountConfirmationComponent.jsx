@@ -4,7 +4,11 @@ import { Button } from "react-bootstrap";
 export const AmountConfirmation = (props) => (
   <div>
     <div>
-      <input placeholder="Enter amount" />
+      <input
+        placeholder="Enter amount"
+        id="purchasedAmount"
+        onChange={props.onAmountPurchased}
+      />
     </div>
     <div>
       <Button
@@ -12,14 +16,14 @@ export const AmountConfirmation = (props) => (
           props.onPurchase(
             props.crypto.id,
             props.crypto.symbol,
-            props.crypto.priceUsd,
-            1,
-            2
+            props.crypto.priceUsd
           )
         }
       >
         Confirm
       </Button>
+      &nbsp;
+      <Button onClick={props.onCancelPurchase}>Cancel</Button>
     </div>
   </div>
 );
