@@ -21,14 +21,11 @@ class PurchaseService(@Autowired val cryptoService: CryptoService,
                 ?: throw RuntimeException("crypto ${purchaseInformation.cryptoId} not found")
         val customer = customerService.findById(purchaseInformation.customerId)
                 ?: throw RuntimeException("customer ${purchaseInformation.customerId} does not exist")
-
         val totalPrice = calculatePrice(purchaseInformation.purchasedAmount, purchaseInformation.cryptoPrice)
         if (!customer.hasEnoughMoney(totalPrice)) {
             throw RuntimeException("Not enough money to buy crypto")
         }
-
         val purchase = Purchase(customer = customer, crypto = crypto, price = totalPrice, purchasedAmount = purchaseInformation.purchasedAmount)
-
         customer.budget = customer.decreaseBudget(purchase.price)
         customerService.save(customer)
         purchaseRepository.save(purchase)

@@ -28,13 +28,21 @@ class BuyButton extends Component {
           name: name,
           id: id,
         },
-        price: price,
         amount: purchasedAmount,
         customerId: 1,
       }),
     };
-    fetch("http://localhost:8080/purchase", requestOptions);
-    this.setState({ buy: false });
+    fetch("http://localhost:8080/purchase", requestOptions)
+      .then(function (response) {
+        if (response.ok) {
+          console.log("done");
+          window.location.reload(false);
+        }
+        throw new Error("Something went wrong.");
+      })
+      .catch(function (error) {
+        console.log("error");
+      });
   };
 
   enablePurchase = (event) => {

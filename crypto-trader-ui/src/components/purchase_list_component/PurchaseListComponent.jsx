@@ -7,6 +7,7 @@ class PurchaseListComponent extends Component {
     this.state = {
       customerId: this.props.customerId,
       purchases: [],
+      sales: [],
     };
   }
 
@@ -25,30 +26,64 @@ class PurchaseListComponent extends Component {
           })),
         })
       );
+    fetch("http://localhost:8080/sale/" + this.props.customerId)
+      .then((response) => response.json())
+      .then((x) =>
+        this.setState({
+          sales: x.map((i) => ({
+            amount: i.amount,
+            crypto: {
+              name: i.cryptoDTO.name,
+              id: i.cryptoDTO.id,
+            },
+          })),
+        })
+      );
   }
 
   render() {
     return (
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Coin id</th>
-            <th>Amount Purchased</th>
-            <th>Total Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.state.purchases.map((purchase) => {
-            return (
-              <tr>
-                <td>{purchase.crypto.id}</td>
-                <td>{purchase.amount}</td>
-                <td>{purchase.price}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table>
+      <div>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Coin id</th>
+              <th>Amount Purchased</th>
+              <th>Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.purchases.map((purchase) => {
+              return (
+                <tr>
+                  <td>{purchase.crypto.id}</td>
+                  <td>{purchase.amount}</td>
+                  <td>{purchase.price}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Coin id</th>
+              <th>Amount Sold</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.sales.map((sale) => {
+              return (
+                <tr>
+                  <td>{sale.crypto.id}</td>
+                  <td>{sale.amount}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      </div>
     );
   }
 }
