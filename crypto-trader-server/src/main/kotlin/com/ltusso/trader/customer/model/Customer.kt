@@ -1,4 +1,4 @@
-package com.ltusso.trader.model
+package com.ltusso.trader.customer.model
 
 import java.math.BigDecimal
 import javax.persistence.*
@@ -16,6 +16,6 @@ data class Customer(
         var lastName: String,
         @Column
         var budget: BigDecimal,
-        @OneToMany(mappedBy = "customer")
-        var purchases: List<Purchase>
+        @OneToMany(mappedBy = "customer",fetch = FetchType.EAGER, cascade = [CascadeType.ALL])
+        var assets: List<CustomerAsset>
 )

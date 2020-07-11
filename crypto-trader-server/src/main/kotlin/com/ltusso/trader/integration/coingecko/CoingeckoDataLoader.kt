@@ -1,7 +1,7 @@
 package com.ltusso.trader.integration.coingecko
 
 import com.ltusso.trader.integration.ProviderDataLoader
-import com.ltusso.trader.service.CryptoService
+import com.ltusso.trader.coins.service.CoinService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.scheduling.annotation.Scheduled
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component
 @Component
 @EnableScheduling
 class CoingeckoDataLoader(@Autowired val coingeckoApi: CoingeckoApi,
-                          @Autowired val crypoService: CryptoService) : ProviderDataLoader {
+                          @Autowired val crypoService: CoinService) : ProviderDataLoader {
 
     override fun load() {
         val cryptos = coingeckoApi.getCryptoList()

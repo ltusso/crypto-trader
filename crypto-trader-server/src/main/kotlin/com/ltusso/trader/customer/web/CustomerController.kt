@@ -1,7 +1,9 @@
-package com.ltusso.trader.web.controller
+package com.ltusso.trader.customer.web
 
-import com.ltusso.trader.service.CustomerService
-import com.ltusso.trader.web.dto.CustomerDTO
+import com.ltusso.trader.coins.web.dto.CryptoDTO
+import com.ltusso.trader.customer.model.Customer
+import com.ltusso.trader.customer.model.CustomerAsset
+import com.ltusso.trader.customer.service.CustomerService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.CrossOrigin
@@ -30,9 +32,14 @@ class CustomerController(
         val customer = customerService.findById(customerId)
 
         if (customer != null) {
-            return ResponseEntity.ok(CustomerDTO(customer.name, customer.lastName, customer.budget))
+            return ResponseEntity.ok(CustomerDTO(customer.name, customer.lastName, customer.budget,customer.assets?.map { it-> customer.assetToDto(it) }))
         }
-        return ResponseEntity.badRequest().build();
+        return ResponseEntity.badRequest().build()
+    }
+
+    //Mappers
+    fun Customer.assetToDto(asset : CustomerAsset):CustomerAssetDTO{
+        return CustomerAssetDTO(asset.coin.code,asset.amount)
     }
 
 

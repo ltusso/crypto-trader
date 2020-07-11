@@ -1,4 +1,4 @@
-package com.ltusso.trader.web.dto
+package com.ltusso.trader.coins.web.dto
 
 import java.math.BigDecimal
 

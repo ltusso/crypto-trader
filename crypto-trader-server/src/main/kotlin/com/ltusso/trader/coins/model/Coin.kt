@@ -1,11 +1,11 @@
-package com.ltusso.trader.model
+package com.ltusso.trader.coins.model
 
 import java.math.BigDecimal
 import javax.persistence.*
 
 @Entity
 @Table(name = "crypto")
-data class Crypto(
+data class Coin(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         var id: Long? = null,

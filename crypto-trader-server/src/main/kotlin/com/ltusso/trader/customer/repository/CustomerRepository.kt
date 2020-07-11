@@ -1,6 +1,6 @@
-package com.ltusso.trader.repository
+package com.ltusso.trader.customer.repository
 
-import com.ltusso.trader.model.Customer
+import com.ltusso.trader.customer.model.Customer
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
