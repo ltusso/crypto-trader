@@ -1,7 +1,9 @@
 package com.ltusso.trader.transaction.sale.service
 
+import com.ltusso.trader.coins.model.Coin
 import com.ltusso.trader.coins.service.CoinService
 import com.ltusso.trader.customer.model.Customer
+import com.ltusso.trader.customer.model.CustomerAsset
 import com.ltusso.trader.customer.service.CustomerService
 import com.ltusso.trader.transaction.purchase.service.PurchaseService
 import com.ltusso.trader.transaction.sale.model.Sale
@@ -29,13 +31,25 @@ class SaleService(@Autowired val coinService: CoinService,
         val sumarizedPurchases = purchaseService.getSumarizedPurchasesByCustomer(customerId = customer.id)
         val sumarizedPurchase = sumarizedPurchases.find { it.getCoincode().equals(crypto.code) }
                 ?: throw RuntimeException("customer ${saleInformation.customerId} does not have any crypto ${saleInformation.cryptoId}")
-        if (sumarizedPurchase.getAmount() < saleInformation.amount) {
+        if (sumarizedPurchase.getAmount() < saleInformation.amount || saleInformation.amount <= BigDecimal.ZERO) {
             throw RuntimeException("customer ${saleInformation.customerId} doesn't have desired amount to sell")
         }
         val sale = Sale(customer = customer, coin = crypto, amount = saleInformation.amount, price = calculatePrice(saleInformation.amount, crypto.price))
         customer.budget = customer.increaseBudget(sale.price)
+
+        sellAsset(customer,crypto,saleInformation.amount)
         saleRepository.save(sale)
         customerService.save(customer)
+    }
+
+    fun sellAsset(customer: Customer, coin: Coin, amount: BigDecimal) {
+        var asset = customer.assets?.filter { it -> it.coin.id == coin.id }
+        if (asset.isNotEmpty()) {
+            var existingAsset = asset.first()
+            existingAsset.amount = existingAsset.amount.minus(amount)
+        } else {
+           throw RuntimeException("No asset found")
+        }
     }
 
     fun getSalesByCustomer(customerId: Long): List<Sale> {

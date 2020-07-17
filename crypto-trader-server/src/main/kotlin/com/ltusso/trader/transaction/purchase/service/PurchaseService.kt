@@ -1,7 +1,9 @@
 package com.ltusso.trader.transaction.purchase.service
 
+import com.ltusso.trader.coins.model.Coin
 import com.ltusso.trader.coins.service.CoinService
 import com.ltusso.trader.customer.model.Customer
+import com.ltusso.trader.customer.model.CustomerAsset
 import com.ltusso.trader.customer.service.CustomerService
 import com.ltusso.trader.transaction.purchase.model.Purchase
 import com.ltusso.trader.transaction.purchase.model.PurchaseInformation
@@ -32,9 +34,19 @@ class PurchaseService(@Autowired val coinService: CoinService,
         val purchase = Purchase(customer = customer, coin = crypto, price = totalPrice, amount = purchaseInformation.purchasedAmount)
         customer.budget = customer.decreaseBudget(purchase.price)
 
-        customerService.updateAsset(customer,crypto,purchaseInformation.purchasedAmount)
+        buyAsset(customer,crypto,purchaseInformation.purchasedAmount)
         customerService.save(customer)
         purchaseRepository.save(purchase)
+    }
+
+    fun buyAsset(customer: Customer, coin: Coin, amount: BigDecimal) {
+        var asset = customer.assets?.filter { it -> it.coin.id == coin.id }
+        if (asset.isNotEmpty()) {
+            var existingAsset = asset.first()
+            existingAsset.amount = existingAsset.amount.add(amount)
+        } else {
+            customer.assets = arrayListOf(CustomerAsset(coin = coin, customer = customer, amount = amount))
+        }
     }
 
     fun getPurchasesByCustomer(customerId: Long): List<Purchase> {
