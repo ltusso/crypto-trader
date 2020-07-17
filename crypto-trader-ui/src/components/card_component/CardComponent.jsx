@@ -1,5 +1,5 @@
 import React from "react";
-import BuyButton from "./../buy_button_component/BuyButtonComponent";
+import TradeButton from "../trade_button_component/TradeButtonComponent";
 
 export const Card = (props) => {
   function Variation(props) {
@@ -24,7 +24,7 @@ export const Card = (props) => {
           {"%"}
           <Variation variation={props.crypto.variation} />{" "}
         </p>
-        <BuyButton key={props.crypto.id} crypto={props.crypto} />
+        <TradeButton key={props.crypto.id} crypto={props.crypto} type="buy" />
       </div>
     </div>
   );

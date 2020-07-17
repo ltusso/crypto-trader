@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table } from "react-bootstrap";
+import TradeButton from "../trade_button_component/TradeButtonComponent";
 
 class CustomerAssetComponent extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class CustomerAssetComponent extends Component {
             <tr>
               <th>Coin</th>
               <th>Amount</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -40,6 +42,12 @@ class CustomerAssetComponent extends Component {
                 <tr>
                   <td>{asset.code}</td>
                   <td>{asset.amount}</td>
+                  <td>
+                    {" "}
+                    <TradeButton key={asset.code} code={asset.code} type="sell">
+                      Sell
+                    </TradeButton>
+                  </td>
                 </tr>
               );
             })}
