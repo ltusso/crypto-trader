@@ -26,7 +26,7 @@ class CoinService(
     }
 
     fun updateCrypto(code: String, price: BigDecimal) {
-        var crypto = coinRepository.findByCode(code)
+        val crypto = coinRepository.findByCode(code)
         if (crypto != null) {
             crypto.variation = crypto.calculateVariationPercentage(price)
             crypto.price = price

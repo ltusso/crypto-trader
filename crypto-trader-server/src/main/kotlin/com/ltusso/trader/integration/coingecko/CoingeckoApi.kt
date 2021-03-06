@@ -21,7 +21,7 @@ class CoingeckoApi {
             val resp: ResponseEntity<List<CoingeckoCrypto?>?> = RestTemplate().exchange(coinsMarketUrl, HttpMethod.GET, buildHeader(), responseType)
              list = resp.getBody() as List<CoingeckoCrypto>
         } catch (e: RestClientResponseException) {
-            println("Can't syncrhonize. There has been an error while trying to fetch assets from Coingecko.")
+            println("Can't synchronize. There has been an error while trying to fetch assets from Coingecko.")
         }
         return list
     }
