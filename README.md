@@ -1,4 +1,4 @@
-#Crypto trading emulator!
+# Crypto trading emulator!
 
 A simple kotlin/react platform to play in-memory and perform some basic crypto purchase/sell operations.
 
